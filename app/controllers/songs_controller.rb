@@ -12,6 +12,16 @@ class SongsController < ApplicationController
         render json: song, status: :created  
     end
 
+    def getGenres
+        genres = Song.allGenres
+        render json: genres, status: :ok
+    end
+
+    def getArtists
+        artists = Song.allArtists
+        render json: artists, status: :ok
+    end
+
     private
     def song_params
         params.permit(:title, :thumbnail, :artist, :genre, :album, :mood, :link, :description)

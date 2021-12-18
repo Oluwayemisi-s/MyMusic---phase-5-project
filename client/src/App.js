@@ -44,7 +44,7 @@ function App() {
       <Button onClick = {handleLogout}>Log out</Button>
       {errors.map((err) => (<Error key={err}>{err}</Error>))}
      { user ? 
-        <MyMusicBody /> 
+        <MyMusicBody user = {user}/> 
         : 
         <LoginSignUp />
      }

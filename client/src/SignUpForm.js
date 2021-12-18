@@ -22,12 +22,13 @@ export default function SignUpForm ({handleFormDisplay, setUser}) {
     function handleSubmit (e){
         e.preventDefault()
         console.log("Form submitting ")
+        const newData = {...formData}
         fetch("/users", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(formData),
+            body: JSON.stringify(newData),
           }).then((res) => {
             if (res.ok) {
               res.json().then((user) => {
@@ -50,6 +51,8 @@ export default function SignUpForm ({handleFormDisplay, setUser}) {
 
     return (
         <div>
+            <fieldset>
+            <legend>Log into your account:</legend>
            {errors.map((err) => (<Error key={err}>{err}</Error>))}
             <Form onSubmit={handleSubmit}>
 
@@ -79,9 +82,7 @@ export default function SignUpForm ({handleFormDisplay, setUser}) {
                 <Button type="submit">Sign Up</Button>
                 <h3>Already have an account? <Button onClick = {handleFormDisplay}>Login Here!</Button></h3>
             </Form>
-
-
-
+            </fieldset>
         </div>
     )
 }

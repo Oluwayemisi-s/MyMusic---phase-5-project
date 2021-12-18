@@ -1,5 +1,6 @@
-Playlist.destroy_all
+PlaylistSong.destroy_all
 Review.destroy_all
+Playlist.destroy_all
 User.destroy_all
 Song.destroy_all
 
@@ -148,17 +149,22 @@ puts 'users seeding...🌱🌱🌱'
 puts 'users done seeding...🌱🌱🌱'
 
 puts 'reviews seeding...🌱🌱🌱'
-    Review.create(song_id: Song.all.sample.id, user_id: User.all.sample.id, content: "123456")
-    Review.create(song_id: Song.all.sample.id, user_id: User.all.sample.id, content: "123456")
-    Review.create(song_id: Song.all.sample.id, user_id: User.all.sample.id, content: "123456")
-    Review.create(song_id: Song.all.sample.id, user_id: User.all.sample.id, content: "123456")
-    Review.create(song_id: Song.all.sample.id, user_id: User.all.sample.id, content: "123456")
+    Review.create(song_id: Song.first.id, user_id: User.all.sample.id, content: "It is an awesome track")
+    Review.create(song_id: Song.first.id, user_id: User.all.sample.id, content: "I don't care about it")
+    Review.create(song_id: Song.second.id, user_id: User.all.sample.id, content: "This makes me soo happy")
+    Review.create(song_id: Song.third.id, user_id: User.all.sample.id, content: "going off this drug")
+    Review.create(song_id: Song.last.id, user_id: User.all.sample.id, content: "Definitly a hit")
 puts 'reviews done seeding...🌱🌱🌱'
 
 puts 'playlists seeding...🌱🌱🌱'
-    Playlist.create(song_id: Song.all.sample.id, user_id: User.all.sample.id, playlist_name: "My banger")
-    Playlist.create(song_id: Song.all.sample.id, user_id: User.all.sample.id, playlist_name: "Party")
+    Playlist.create(user_id: User.first.id, playlist_name: "My banger")
+    Playlist.create(user_id: User.second.id, playlist_name: "Party")
 puts 'playlists done seeding...🌱🌱🌱'
+
+puts 'playlist_songs seeding...🌱🌱🌱'
+    PlaylistSong.create(song_id: Song.first.id, playlist_id: Playlist.first.id)
+    PlaylistSong.create(song_id: Song.second.id, playlist_id: Playlist.first.id)
+puts 'playlist_songs done seeding...🌱🌱🌱'
 
 puts 'all data successfully seeded...🌱🌱🌱'
 

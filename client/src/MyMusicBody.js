@@ -7,7 +7,7 @@ import AllGenresContainer from "./AllGenresContainer"
 import AddSongForm from "./AddSongForm";
 import EditProfile from "./EditProfile";
 
-export default function MyMusicBody (){
+export default function MyMusicBody ( {user} ){
 
     return(
         <div>
@@ -16,7 +16,7 @@ export default function MyMusicBody (){
 
             <Switch>
                 <Route exact path = "/allsongs">
-                  <AllSongsContainter />
+                  <AllSongsContainter user = {user} />
                 </Route>
                 <Route exact path = "/allartists">
                   <AllArtistContainer />

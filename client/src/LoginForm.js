@@ -11,7 +11,7 @@ export default function LoginForm ( {handleFormDisplay, setUser} ) {
     })
 
     function handleFormChange(e){
-       console.log("form cchanging")
+       console.log("form changing" , e.target)
         setFormData({...formData, [e.target.name]: e.target.value})
         console.log(formData)
        
@@ -20,12 +20,13 @@ export default function LoginForm ( {handleFormDisplay, setUser} ) {
     function handleSubmit(e){
         e.preventDefault()
         console.log("Form submitting...")
+        const newData = {...formData}
         fetch("/login", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(formData),
+            body: JSON.stringify(newData),
           }).then((res) => {
             if (res.ok) {
               res.json().then((user) => {
@@ -45,9 +46,11 @@ export default function LoginForm ( {handleFormDisplay, setUser} ) {
 
     return (
         <div>
+            <fieldset>
+            <legend>Log into your account:</legend>
            {errors.map((err) => (<Error key={err}>{err}</Error>))}
             <Form onSubmit={handleSubmit}>
-                
+            
                 <Form.Group className="mb-3" controlId="formGroupEmail">
                     <Form.Label>Email address:</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" name="email" value={formData.email} onChange={handleFormChange}/>
@@ -62,8 +65,9 @@ export default function LoginForm ( {handleFormDisplay, setUser} ) {
                 </Form.Group>
                 <Button type="submit">Login</Button>
                 <h3>Don't have an account yet? <Button onClick = {handleFormDisplay}>Sign Up Here!</Button></h3>
-
+                
             </Form>
+            </fieldset>
        
         </div>
     )

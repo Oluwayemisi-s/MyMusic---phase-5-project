@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::API
     include ActionController::Cookies
 
-    private
-
     def current_user
         User.find_by(id: session[:user_id])
     end
+
+    # private
 
     def is_authorised
         render json: {errors: ["You are not authorized to perform this action", "You need to be an Admin"]}, status: :forbidden unless current_user.isAdmin

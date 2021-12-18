@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import Error from "./Error"
 import SongCard from "./SongCard"
 
-export default function AllSongsContainter(){
+export default function AllSongsContainter( {user} ){
     const [allSongs, setAllSongs] = useState([])
     const [errors, setErrors] = useState([])
 
@@ -17,14 +17,14 @@ export default function AllSongsContainter(){
         }) 
     }, [])
 
-    const songs = allSongs.map( song => <SongCard key = {song.id}/>)
+    const songs = allSongs.map( song => <SongCard key = {song.id} song = {song} user = {user}/>)
 
     return(
         <div>
             {errors.map((err) => (
               <Error key={err}>{err}</Error>
             ))}
-            This will contain the all songs
+            
             {songs}
         </div>
     )

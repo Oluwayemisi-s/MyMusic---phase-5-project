@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete :user_id
-    render json: {errors: ["Please log in to continue"]}, status: :unauthorized
+    # render json: {errors: ["Please log in to continue"]}, status: :unauthorized
+    session.delete :user_id  
   end
 end

@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button'
 import { useState } from 'react'
+import ReactPlayer from 'react-player'
 import Modal from 'react-bootstrap/Modal'
 import Reviews from './Reviews'
 
@@ -22,11 +23,13 @@ export default function SongCard({ song, user }){
 
     function handleAddToLibrary(){
         console.log("Add to library was clicked")
+
         
     }
 
     function handlePlayMusic(){
         console.log("Play button was clicked")
+        setPlay(current => !current)
     }
 
         return (
@@ -35,9 +38,10 @@ export default function SongCard({ song, user }){
                 <h6>Song Title: {song.title}</h6>
                 <small>Album: {song.album} | Artist: {song.artist} | Genre: {song.genre} | Mood: {song.mood} </small>
                 <br />
-                <Button onClick = {handlePlayMusic}> ▶️ </Button> <Button onClick = {handleAddToLibrary}> ➕ </Button>
+                <Button onClick = {handlePlayMusic}> { play? "⏹" : "▶️"} </Button> <Button onClick = {handleAddToLibrary}> ➕ </Button>
                 <br/>
                 <Button onClick = {handleClickReview}> Reviews </Button> <Button onClick = {handleDescriptionClick}> Decription </Button>
+                { play ? <ReactPlayer url={song.link} playing controls /> : null}
                 <Modal
                     show={showDescription}
                     onHide={handleDescriptionClick}

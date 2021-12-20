@@ -19,13 +19,13 @@ export default function MyMusicBody ( {user} ){
                   <AllSongsContainter user = {user} />
                 </Route>
                 <Route exact path = "/allartists">
-                  <AllArtistContainer />
+                  <AllArtistContainer user = {user}/>
                 </Route>
                 <Route exact path = "/allgenres">
-                  <AllGenresContainer />
+                  <AllGenresContainer user = {user}/>
                 </Route>
                 <Route exact path = "/mylibrary">
-                  <LibraryContainer />
+                  <LibraryContainer user = {user}/>
                 </Route>
                 <Route exact path = "/addasong">
                   <AddSongForm />

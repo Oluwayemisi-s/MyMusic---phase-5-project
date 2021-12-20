@@ -24,6 +24,36 @@ export default function AddSongForm(){
     function handleSubmit(e){
         e.preventDefault()
         console.log("form submitting") 
+        fetch("/songs", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          }).then((res) => {
+            if (res.ok) {
+              res.json().then((data) => {
+                console.log(data);
+                alert("Song has been added to our database")
+                setFormData({
+                    title: "",
+                    thumbnail: "",
+                    artist: "",
+                    genre: "",
+                    album: "",
+                    mood: "",
+                    link: "",
+                    description: ""
+                })
+                setErrors([])
+              });
+            } else {
+              res.json().then((err) => {
+                setErrors(err.errors);
+              });
+            }
+          });
+        
     }
 
     return(

@@ -1,8 +1,8 @@
-import { useState } from "react"
+
 //import { useAutocomplete } from '@mui/base/AutocompleteUnstyled';
 
-export default function Search () {
-    const [search, setSearch] = useState("")
+export default function Search ( {search, setSearch} ) {
+    //const [search, setSearch] = useState("")
 
     return(
         <div>

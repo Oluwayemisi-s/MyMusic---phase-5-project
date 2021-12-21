@@ -1,10 +1,12 @@
 import Error from "./Error"
 import { useState, useEffect } from "react"
+import SongCard from "./SongCard"
 
-export default function AllArtistContainer(){
+export default function AllArtistContainer( {user} ){
 
     const [allArtists, setAllArtists] = useState([])
     const [errors, setErrors] = useState([])
+    const [songsForArtist, setSongsForArtist] = useState([])
 
     useEffect(() => {
         fetch("/artists")
@@ -19,12 +21,33 @@ export default function AllArtistContainer(){
         }) 
     }, [])
 
-    const artists = allArtists.map( artist => <h1 key = {artist}>{artist}</h1>)
+    function handleArtistClick (artist){
+      console.log(`${artist} clicked`)
+      fetch(`/songs/${artist}`)
+      .then((res) => {
+        if (res.ok) {
+          res.json().then((data) => {
+              //console.log(data)
+              setSongsForArtist(data)
+          });
+        } else {
+          res.json().then((err) => setErrors(err.errors));
+        }
+      }) 
+  }
+
+    const artists = allArtists.map( artist => <h1 key = {artist} onClick = {() => handleArtistClick(artist)}>{artist}</h1>)
+    const songs = songsForArtist.map( song => <SongCard key = {song.id} song = {song} user = {user}/>)
 
     return(
         <div>
+          <div>
             {errors.map((err) => (<Error key={err}>{err}</Error>))}
             {artists}
+          </div>
+          <div>
+            {songs}
+          </div>
         </div>
     )
 }

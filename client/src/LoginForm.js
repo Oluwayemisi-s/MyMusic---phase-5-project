@@ -11,7 +11,7 @@ export default function LoginForm ( {handleFormDisplay, setUser} ) {
     })
 
     function handleFormChange(e){
-       console.log("form changing" , e.target)
+       //console.log("form changing" , e.target)
         setFormData({...formData, [e.target.name]: e.target.value})
         console.log(formData)
        

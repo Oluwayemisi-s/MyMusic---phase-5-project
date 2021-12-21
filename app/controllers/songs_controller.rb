@@ -12,6 +12,14 @@ class SongsController < ApplicationController
         render json: song, status: :created  
     end
 
+    def show 
+        # byebug
+        songs = Song.filterSongs(params[:id])
+        # songsInGenre = Song.where(genre: params[:id])
+        render json: songs, status: :ok
+        # byebug    
+    end
+
     def getGenres
         genres = Song.allGenres
         render json: genres, status: :ok

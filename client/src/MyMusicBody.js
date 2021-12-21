@@ -6,26 +6,29 @@ import LibraryContainer from "./LibraryContainer";
 import AllGenresContainer from "./AllGenresContainer"
 import AddSongForm from "./AddSongForm";
 import EditProfile from "./EditProfile";
+import { useState } from 'react'
+
 
 export default function MyMusicBody ( {user} ){
+  const [search, setSearch] = useState("")
 
     return(
         <div>
             This is the entire content body!
             <Navigation /> 
-
+            {/* <Search search = {search} setSearch = {setSearch}/> */}
             <Switch>
                 <Route exact path = "/allsongs">
-                  <AllSongsContainter user = {user} />
+                  <AllSongsContainter user = {user} search = {search} setSearch = {setSearch}/>
                 </Route>
                 <Route exact path = "/allartists">
-                  <AllArtistContainer />
+                  <AllArtistContainer user = {user} />
                 </Route>
                 <Route exact path = "/allgenres">
-                  <AllGenresContainer />
+                  <AllGenresContainer user = {user}/>
                 </Route>
                 <Route exact path = "/mylibrary">
-                  <LibraryContainer />
+                  <LibraryContainer user = {user}/>
                 </Route>
                 <Route exact path = "/addasong">
                   <AddSongForm />
@@ -34,7 +37,7 @@ export default function MyMusicBody ( {user} ){
                   <EditProfile />
                 </Route>
             </Switch>
-
+          
         </div>
     )
 }

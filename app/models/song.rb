@@ -14,4 +14,13 @@ class Song < ApplicationRecord
         genres = Song.pluck(:artist).uniq
     end
 
+    def self.filterSongs(name)
+        songs = Song.where(genre: name) 
+        if songs.length == 0
+            songs = Song.where(artist: name)  
+        end
+        songs
+    end
+
+
 end

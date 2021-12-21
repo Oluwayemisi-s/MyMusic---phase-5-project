@@ -36,15 +36,15 @@ export default function GenreContainer( {user} ){
         }) 
     }
 
-    const genres = allGenres.map( genre => <h1 key = {genre} onClick = {() => handleGenreClick(genre)}>{genre}</h1>)
+    const genres = allGenres.map( genre => <h1 className = "genres-name" key = {genre} onClick = {() => handleGenreClick(genre)}>{genre}</h1>)
     const songs = songsInGenre.map( song => <SongCard key = {song.id} song = {song} user = {user}/>)
     return(
-        <div>
-            <div>
+        <div className="genres-main">
+            <div className="genres-container">
                 {errors.map((err) => (<Error key={err}>{err}</Error>))}
                 {genres}
             </div>
-            <div>
+            <div className="genres-container-songs">
                 {songs}
             </div>
         </div>

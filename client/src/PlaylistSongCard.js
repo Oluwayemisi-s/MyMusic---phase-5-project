@@ -14,7 +14,7 @@ export default function PlaylistSongCard ( {song} ){
     }
 
     return(
-        <div>
+        <div className="playlist-song-card">
             <img src = {song.thumbnail} alt = "poster"/>
             <h6>Song Title: {song.title}</h6>
             <Button onClick = {handlePlayMusic}> { play? "⏹" : "▶️"} </Button> 

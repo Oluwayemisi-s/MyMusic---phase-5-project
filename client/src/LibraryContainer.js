@@ -98,9 +98,10 @@ export default function LibraryContainer( {user} ){
 
     const songsInPlaylist = songs.map(playlist => <PlaylistSongCard key = {playlist.id} song = {playlist.song} user = {user}/>)
 
-    const list = playlists.map(playlist => <div key = {playlist.id}><h1 onClick = {() => handleSongsInPlaylist(playlist)}>{playlist.playlist_name}</h1> <button onClick = {() => handleAddPlaylistDelete(playlist)}> ✖️Delete</button> </div>)
+    const list = playlists.map(playlist => <div className="library-playlist" key = {playlist.id}><h1 onClick = {() => handleSongsInPlaylist(playlist)}>{playlist.playlist_name}</h1> <button onClick = {() => handleAddPlaylistDelete(playlist)}> ✖️Delete</button> </div>)
     return(
-        <div>
+      <div className="library-main">
+          <div className="library">
             {list}
             <button onClick = {handleAddPlaylist}> {addPlaylist ? "Hide form" : "➕ Add a playlist"}</button>
             { addPlaylist ? 
@@ -111,10 +112,10 @@ export default function LibraryContainer( {user} ){
                 <button type = "submit">Add now!</button>
             </form> : null
             }
-            <div>
-                {songsInPlaylist} 
-            </div>
-           
+          </div>
+          <div className="library-songs">
+            {songsInPlaylist} 
+          </div> 
         </div>
     )
 }

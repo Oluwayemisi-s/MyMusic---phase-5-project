@@ -46,7 +46,7 @@ export default function LoginForm ( {handleFormDisplay, setUser} ) {
 
     return (
         <div>
-            <fieldset>
+            <fieldset className="form-container">
             <legend>Log into your account:</legend>
            {errors.map((err) => (<Error key={err}>{err}</Error>))}
             <Form onSubmit={handleSubmit}>

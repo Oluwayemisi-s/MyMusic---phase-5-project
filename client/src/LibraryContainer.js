@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react"
 import Error from "./Error"
+import PlaylistSongCard from "./PlaylistSongCard"
 
 export default function LibraryContainer( {user} ){
     const [playlists, setPlaylists] = useState([])
     const [errors, setErrors] = useState([])
     const [addPlaylist, setAddPlaylist] = useState(false)
+    //const [showSongs, setShowSongs] = useState(false)
+    const [songs, setSongs] = useState([])
     const [formData, setFormData] = useState({
         user_id: user.id,
         playlist_name: ""
@@ -14,12 +17,19 @@ export default function LibraryContainer( {user} ){
         fetch('/playlists')
         .then (res => res.json())
         .then(data => {
-            console.log(data)
+            //console.log(data)
             setPlaylists(data)})
     }, [])
 
-    function handleSongsInPlaylist(){
+    function handleSongsInPlaylist(playlist){
         console.log("Clicked")
+        fetch(`/playlist_songs/${playlist.id}`)
+        .then (res => res.json())
+        .then(data => {
+            console.log(data)
+            setSongs(data)
+            //setShowSongs(current => !current)
+        })
     }
 
     function handleAddPlaylist(){
@@ -86,8 +96,9 @@ export default function LibraryContainer( {user} ){
 
     }
 
+    const songsInPlaylist = songs.map(playlist => <PlaylistSongCard key = {playlist.id} song = {playlist.song} user = {user}/>)
 
-    const list = playlists.map(playlist => <div key = {playlist.id}><h1 onClick = {handleSongsInPlaylist}>{playlist.playlist_name}</h1> <button onClick = {() => handleAddPlaylistDelete(playlist)}> ✖️Delete</button> </div>)
+    const list = playlists.map(playlist => <div key = {playlist.id}><h1 onClick = {() => handleSongsInPlaylist(playlist)}>{playlist.playlist_name}</h1> <button onClick = {() => handleAddPlaylistDelete(playlist)}> ✖️Delete</button> </div>)
     return(
         <div>
             {list}
@@ -100,6 +111,9 @@ export default function LibraryContainer( {user} ){
                 <button type = "submit">Add now!</button>
             </form> : null
             }
+            <div>
+                {songsInPlaylist} 
+            </div>
            
         </div>
     )

@@ -79,53 +79,64 @@ export default function SongCard({ song, user }){
     const options = playlists.map(playlist => <option key = {playlist.id} value={playlist.id}>{playlist.playlist_name}</option>)
 
         return (
-            <div>
+            <div className = "song-card">
+                <div className = "song-card-titles">
                 <img src = {song.thumbnail} alt = "poster"/>
-                <h6>Song Title: {song.title}</h6>
-                <small>Album: {song.album} | Artist: {song.artist} | Genre: {song.genre} | Mood: {song.mood} </small>
+                    <div className = "song-card-text">
+                        <h6>{song.title}</h6>
+                        <small>Album: {song.album} | Artist: {song.artist} | Genre: {song.genre} | Mood: {song.mood} </small>
+                    </div>
+                </div>
                 <br />
-                {errors.map((err) => (<Error key={err}>{err}</Error>))}
-                <Button onClick = {handlePlayMusic}> { play? "⏹" : "▶️"} </Button> 
-                { addToLib ? <Button> ➖ Added to library </Button> : <Button onClick = {handleAddToLibrary}> ➕ Add to library </Button>}
-                <br />
-                {/* {addToLib ?  */}
                 {/* {errors.map((err) => (<Error key={err}>{err}</Error>))} */}
-                <label htmlFor="Playlist-options">Select playlist to add song to:
-                    <select
-                        id="playlist"
-                        name="playlist_id"
-                        required
-                        onChange={handleChange} 
-                        >
-                            <option value="">None</option>
-                            {options}
-                    </select>
-                </label>
+                <div className = "song-card-upper-buttons">
+                    <Button className="btn-default" onClick = {handlePlayMusic}> { play? "⏹" : "▶️"} </Button> 
+                    
+                    { addToLib ? <Button className="btn btn-default"> ➖ Added to library </Button> : <Button className="btn btn-default" onClick = {handleAddToLibrary}> ➕ </Button>}
+                    <br />
+                    {/* {addToLib ?  */}
+                    {/* {errors.map((err) => (<Error key={err}>{err}</Error>))} */}
+                    <label htmlFor="Playlist-options">Select playlist to add song to:
+                        <select
+                            id="playlist"
+                            name="playlist_id"
+                            required
+                            onChange={handleChange} 
+                            >
+                                <option value="">None</option>
+                                {options}
+                        </select>
+                    </label>
+                </div>
                  {/* : null} */}
                 <br/>
-                <Button onClick = {handleClickReview}> Reviews </Button> <Button onClick = {handleDescriptionClick}> Decription </Button>
-                { play ? <ReactPlayer url={song.link} playing controls /> : null}
-                <Modal
-                    show={showDescription}
-                    onHide={handleDescriptionClick}
-                    backdrop="static"
-                    keyboard={false}>
-                    <Modal.Header closeButton>
-                      <Modal.Title>A little story about the song</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                      {song.description}
-                    </Modal.Body>
-                    <Modal.Footer>
-                      <Button variant="secondary" onClick={handleDescriptionClick}>
-                        Close
-                      </Button>
-                    </Modal.Footer>
-                </Modal> 
-
-                {showReviews ? 
+                <div className = "song-card-lower-buttons">
+                    <Button variant="link" className="btn btn-link" onClick = {handleClickReview}> Reviews </Button> <Button variant="link" className="btn btn-link" onClick = {handleDescriptionClick}> Decription </Button>
+                    
+                    <Modal
+                        show={showDescription}
+                        onHide={handleDescriptionClick}
+                        backdrop="static"
+                        keyboard={false}>
+                        <Modal.Header closeButton>
+                        <Modal.Title>A little story about the song</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                        {song.description}
+                        </Modal.Body>
+                        <Modal.Footer>
+                        <Button variant="secondary" onClick={handleDescriptionClick}>
+                            Close
+                        </Button>
+                        </Modal.Footer>
+                    </Modal> 
+                </div>
+                <div className = "song-card-conditionals">
+                    {showReviews ? 
                     <Reviews song = {song} user = {user}/> : null
-                }
+                    }
+                    { play ? <ReactPlayer url={song.link} playing controls width = "350px" height = "180px"/> : null}
+                </div>
             </div>
         )
     }

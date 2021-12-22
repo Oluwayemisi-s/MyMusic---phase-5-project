@@ -31,8 +31,8 @@ test_data =
         strArtist: "Kenny Rogers",
         strDescription: "We do not have a description for this song",
         strGenre: "Country",
-        strMood: "not defined",
-        strMusicVid: "not defined",
+        strMood: "Information not provided",
+        strMusicVid: "https://www.youtube.com/watch?v=0T1J8JuTtR8",
         strTrack: "Lady",
         strTrackThumb: "https://www.theaudiodb.com/images/media/track/thumb/uwrvxv1584966953.jpg"
     },
@@ -44,7 +44,7 @@ test_data =
         strMood: "Trippy",
         strMusicVid: "https://www.youtube.com/watch?v=yT0gRc2c2wQ",
         strTrack: "Roygbiv",
-        strTrackThumb: "not defined"
+        strTrackThumb: "https://m.media-amazon.com/images/I/81JHZJe26fL._SS500_.jpg"
     },
     {
         strAlbum: "Space Oddity",
@@ -120,7 +120,7 @@ test_data =
         strArtist: "Michael Jackson",
         strDescription: "Billie Jean is a song by American recording artist Michael Jackson. It is the second single from the singer's sixth solo album, Thriller (1982). It was written and composed by Jackson and produced by him and Quincy Jones. There are contradictory claims to what the song's lyrics refer to. One suggests that they are derived from a real-life experience, in which a female fan claimed that Jackson (or one of his brothers) had fathered one of her twins. However, Jackson himself stated that Billie Jean was based on groupies he had encountered. The song is well known for its distinctive bassline by guitarist David Williams, and Jackson's vocal hiccups. The song was mixed 91 times by audio engineer Bruce Swedien before it was finalized. Awarded numerous honors—including two Grammy Awards, one American Music Award, and an induction into the Music Video Producers Hall of Fame—the song and corresponding music video propelled Thriller to the status of best-selling album of all time. The song was promoted with a short film that broke down MTV's racial barrier as the first video by a black artist to be aired in heavy rotation. Also, Jackson's Emmy-nominated performance on Motown 25: Yesterday, Today, Forever, in which Jackson premiered his moonwalk also helped to popularize the song. It was also promoted through Jackson's Pepsi commercials; during the filming of one commercial, Jackson's scalp was severely burned.",
         strGenre: "Pop",
-        strMood: "no information",
+        strMood: "Information not provided",
         strMusicVid: "https://www.youtube.com/watch?v=Zi_XLOBDo_Y",
         strTrack: "Billie Jean",
         strTrackThumb: "https://www.theaudiodb.com/images/media/track/thumb/tqqsur1418298940.jpg"

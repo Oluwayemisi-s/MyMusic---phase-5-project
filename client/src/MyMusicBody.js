@@ -14,7 +14,6 @@ export default function MyMusicBody ( {user} ){
 
     return(
         <div>
-            This is the entire content body!
             <Navigation /> 
             {/* <Search search = {search} setSearch = {setSearch}/> */}
             <Switch>

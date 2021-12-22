@@ -1,5 +1,7 @@
 class Song < ApplicationRecord
 
+    validates :title, :thumbnail, :artist, :genre, :album, :mood, :link, :description, presence: true
+
     has_many :playlist_songs
     has_many :playlists, through: :playlist_songs
 

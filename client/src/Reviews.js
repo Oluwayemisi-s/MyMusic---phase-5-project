@@ -55,7 +55,7 @@ export default function Reviews ( {song, user} ) {
     </div>)
 
     return(
-        <div>
+        <div className="reviews">
             <ul>
                 {reviews}
             </ul>

@@ -36,16 +36,16 @@ export default function AllArtistContainer( {user} ){
       }) 
   }
 
-    const artists = allArtists.map( artist => <h1 key = {artist} onClick = {() => handleArtistClick(artist)}>{artist}</h1>)
+    const artists = allArtists.map( artist => <h1 className = "genres-name" key = {artist} onClick = {() => handleArtistClick(artist)}>{artist}</h1>)
     const songs = songsForArtist.map( song => <SongCard key = {song.id} song = {song} user = {user}/>)
 
     return(
-        <div>
-          <div>
+        <div className="genres-main">
+          <div className="genres-container">
             {errors.map((err) => (<Error key={err}>{err}</Error>))}
             {artists}
           </div>
-          <div>
+          <div className="genres-container-songs">
             {songs}
           </div>
         </div>

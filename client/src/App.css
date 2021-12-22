@@ -1,11 +1,337 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Patrick+Hand&display=swap');
+
+body {
+  background-image: url("https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NTB8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=700&q=60");
+  background-size: 100%;
+  cursor: url("http://www.rw-designer.com/cursor-extern.php?id=74558");
+}
+
+.form-container {
+  width: 70%;
+  margin: auto;
+  border-color: rgb(245, 69, 245);
+  border-style: inset;
+  border-width: 5px;
   text-align: center;
+  margin-top: 10%;
+  font-size: 1.25em;
+  font-weight: bolder;
+  font-family: 'Patrick Hand', cursive;
+  padding: 10px;
+  background-color: rgb(233, 218, 195, .70);
+  border-radius: 2em;
+  box-shadow: 20px 20px 50px 15px rgba(236, 149, 174, 0.9);
+}
+
+.form-container-add {
+  width: 70%;
+  margin: auto;
+  border-color: rgb(245, 69, 245);
+  border-style: inset;
+  border-width: 5px;
+  text-align: center;
+  margin-top: 3%;
+  font-size: 1.25em;
+  font-family: 'Patrick Hand', cursive;
+  font-weight: bolder;
+  padding: 10px;
+  background-color: rgb(233, 218, 195, .70);
+  border-radius: 2em;
+  box-shadow: 20px 20px 50px 15px rgba(236, 149, 174, 0.9);
+}
+
+.header {
+  text-align: center;
+  padding: 10px;
+  margin: 15px;
+  font-family: 'Anton', sans-serif;
+  /* font-family: 'Moo Lah Lah', cursive; */
+  font-size: 150px;
+}
+
+#logout {
+  text-align: center;
+  margin-left: 47.5%;
+  margin-bottom: 10px;
+}
+
+.navigation {
+  align-items: center;
+  width: 100%;
+  margin:auto;
+  margin-bottom: 15px;
 }
 
 .bg-nav{
   display:flex;
-  background-color: hotpink;
-  font-size: 2em;
+  background-color: rgba(82, 212, 219, 0.9);
+  font-size: 3em;
+  /* text-align: center; */
   width: 100%;
-  justify-content: space-between;
+  justify-self: center;
+  align-items: center;
+  font-family: 'Patrick Hand', cursive;
+  font-weight: bolder;
+  padding: 20px;
+  padding-left: 120px;
+}
+
+.search {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bolder;
+  padding: 10px;
+}
+
+.search label{
+  margin-right: 5px;
+  font-family: 'Patrick Hand', cursive;
+}
+
+.search input{
+  margin-right: 5px;
+  border-radius: 10px;
+  font-family: 'Patrick Hand', cursive;
+}
+
+.song-card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-family: 'Patrick Hand', cursive;
+}
+
+.song-card {
+  display: flex;
+  flex-direction: column;
+  /* height: 150px; */
+  width: 45%;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 2em;
+  padding: 10px;
+  background-color: rgb(233, 218, 195, .70);
+  box-shadow:20px 20px 40px rgb(225, 199, 174);
+ }
+
+ .song-card:hover {
+  border: 5px solid rgb(247, 240, 240, .90);
+  overflow: hidden;
+ }
+.song-card img {
+ width: 100px;
+ height: 120px;
+ border-radius: 2em;
+ border: 1px solid;
+ margin: 5px;
+}
+
+.song-card-titles {
+  display: flex;
+  flex-direction: row;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin: 10px;
+  justify-self: left;
+}
+
+.song-card-text {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.song-card-titles h6{
+  font-size: 1.5em;
+  font-weight: bolder;
+  margin: 15px;
+  margin-top: 5px;
+ margin-left: 1px;
+ justify-self: center;
+  align-items: center;
+  font-family: 'Patrick Hand', cursive;
+}
+
+.song-card-titles small{
+  font-size: 1em;
+  margin: 10px;
+  margin-top: 5px;
+  justify-self: center;
+  align-items: center;
+  font-family: 'Patrick Hand', cursive;
+}
+
+.btn {
+  width: auto;
+  /* height: 60%; */
+  padding: 10px;
+  margin: 2px;
+  font-size: 1em;
+  font-family: 'Patrick Hand', cursive;
+  border-radius: 2em;
+  background-color: rgba(114, 212, 218, 0.4);
+  /* background-color: rgb(238, 172, 191, .80); */
+}
+
+.btn-link {
+  font-size: 1em;
+}
+
+.btn-link:hover {
+  border: 5px solid rgb(247, 240, 240, .90);
+  overflow: hidden;
+}
+
+.song-card-upper-buttons {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  font-family: 'Patrick Hand', cursive;
+}
+
+.song-card-upper-buttons label, select{
+ display: flex;
+ font-weight: bolder;
+ margin-left: 10px;
+ justify-self: center;
+ align-items: center;
+ font-size: 1.05em;
+ font-family: 'Patrick Hand', cursive;
+}
+
+.song-card-lower-buttons {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  font-family: 'Patrick Hand', cursive;
+}
+
+.choose-playlist {
+  display: block;
+  font-size: 1.5em;
+  font-weight: 1em;
+}
+/* .song-card-conditionals {
+  display: flex;
+  flex-direction: column;
+} */
+
+.reviews {
+  text-align: left;
+  font-weight: bolder;
+}
+
+.genres-main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.genres-container {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin-left: 20px;
+  align-content: left;
+  font-family: 'Patrick Hand', cursive;
+}
+
+.genres-name {
+ /* width: 20%; */
+ border: 5px solid;
+ border-color: rgb(245, 69, 245);
+ border-style: inset;
+ padding: 20px;
+ text-align: center;
+ margin: 15px;
+ background-color: rgb(233, 218, 195, .70);
+ border-radius: 2em;
+box-shadow: 20px 20px 50px 15px rgba(236, 149, 174, 0.9);
+ font-family: 'Patrick Hand', cursive;
+}
+
+.genres-container-songs {
+  width: 75%;
+  /* margin-left: 25%; */
+  margin-top: 20px;
+}
+
+.library-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.library-main button {
+  width: auto;
+  height: auto;
+  margin: 2px;
+  font-size: 1em;
+  font-weight: bolder;
+  font-family: 'Patrick Hand', cursive;
+  border-radius: 2em;
+  background-color: rgba(114, 212, 218, 0.4);
+  padding: 10px;
+  align-self: center;
+}
+
+.library-songs {
+  display: flex;
+  flex-direction: row;
+}
+
+.library {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.library form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-left: 10px;
+  font-weight: bolder;
+  justify-self: center;
+  align-items: center;
+  font-size: 1.05em;
+  font-family: 'Patrick Hand', cursive;
+  
+}
+
+.library-playlist {
+  /* display: flex; */
+  border: 5px solid;
+  border-color: rgb(245, 69, 245);
+  border-style: inset;
+  padding: 20px;
+  width: 25%;
+  text-align: center;
+  margin: 15px;
+  background-color: rgb(233, 218, 195, .70);
+  border-radius: 2em;
+  box-shadow: 20px 20px 50px 15px rgba(236, 149, 174, 0.9);
+}
+
+.playlist-song-card {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  font-weight: bolder;
+  font-family: 'Patrick Hand', cursive;
+  text-align: center;
+  margin-left: 20px;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 15px;
+  border: 5px solid;
+  border-color: rgb(245, 69, 245);
+  border-radius: 2em;
+  box-shadow: 20px 20px 50px 15px rgba(236, 149, 174, 0.9);
+  background-color: rgb(233, 198, 213, .70);
+}
+
+.playlist-song-card img {
+  margin-bottom: 10px;
 }

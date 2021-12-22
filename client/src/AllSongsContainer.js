@@ -24,13 +24,16 @@ export default function AllSongsContainter( {user, search, setSearch} ){
     const songs = filteredSongs.map( song => <SongCard key = {song.id} song = {song} user = {user}/>)
 
     return(
-        <div>
-          <Search search = {search} setSearch = {setSearch}/>
+      <div>
+        <Search search = {search} setSearch = {setSearch}/>
+        <div className="song-card-container">
+          
             {errors.map((err) => (
               <Error key={err}>{err}</Error>
             ))}
             
             {songs}
         </div>
+     </div>
     )
 }

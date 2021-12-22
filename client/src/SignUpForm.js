@@ -51,8 +51,8 @@ export default function SignUpForm ({handleFormDisplay, setUser}) {
 
     return (
         <div>
-            <fieldset>
-            <legend>Log into your account:</legend>
+            <fieldset className="form-container">
+            <legend>Sign up for an account:</legend>
            {errors.map((err) => (<Error key={err}>{err}</Error>))}
             <Form onSubmit={handleSubmit}>
 
@@ -79,7 +79,7 @@ export default function SignUpForm ({handleFormDisplay, setUser}) {
                         Password must match what you have above.
                     </Form.Text>
                 </Form.Group>
-                <Button type="submit">Sign Up</Button>
+                <Button className = "btn-default" type="submit">Sign Up</Button>
                 <h3>Already have an account? <Button onClick = {handleFormDisplay}>Login Here!</Button></h3>
             </Form>
             </fieldset>

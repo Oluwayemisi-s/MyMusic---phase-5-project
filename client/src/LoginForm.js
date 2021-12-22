@@ -63,7 +63,7 @@ export default function LoginForm ( {handleFormDisplay, setUser} ) {
                         Your password must be at least 6 characters long.
                     </Form.Text>
                 </Form.Group>
-                <Button type="submit">Login</Button>
+                <Button className = "btn-default" type="submit">Login</Button>
                 <h3>Don't have an account yet? <Button onClick = {handleFormDisplay}>Sign Up Here!</Button></h3>
                 
             </Form>

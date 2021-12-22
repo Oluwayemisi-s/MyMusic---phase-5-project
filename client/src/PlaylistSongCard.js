@@ -15,11 +15,12 @@ export default function PlaylistSongCard ( {song} ){
 
     return(
         <div className="playlist-song-card">
-            <img src = {song.thumbnail} alt = "poster"/>
+            { play ? <ReactPlayer url={song.link} playing controls width = "250px" height = "250px"/> : <img src = {song.thumbnail} alt = "poster"/>}
+            {/* <img src = {song.thumbnail} alt = "poster"/> */}
             <h6>Song Title: {song.title}</h6>
             <Button onClick = {handlePlayMusic}> { play? "⏹" : "▶️"} </Button> 
             <Button onClick = {handleDeleteMusic}> ✖️ Remove </Button> 
-            { play ? <ReactPlayer url={song.link} playing controls /> : null}
+            {/* { play ? <ReactPlayer url={song.link} playing controls width = "250px" height = "180px"/> : null} */}
             
         </div>
     )

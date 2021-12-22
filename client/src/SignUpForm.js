@@ -79,7 +79,7 @@ export default function SignUpForm ({handleFormDisplay, setUser}) {
                         Password must match what you have above.
                     </Form.Text>
                 </Form.Group>
-                <Button type="submit">Sign Up</Button>
+                <Button className = "btn-default" type="submit">Sign Up</Button>
                 <h3>Already have an account? <Button onClick = {handleFormDisplay}>Login Here!</Button></h3>
             </Form>
             </fieldset>

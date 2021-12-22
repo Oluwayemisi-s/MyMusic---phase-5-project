@@ -83,16 +83,16 @@ export default function SongCard({ song, user }){
                 <div className = "song-card-titles">
                 <img src = {song.thumbnail} alt = "poster"/>
                     <div className = "song-card-text">
-                        <h6>Song Title: {song.title}</h6>
+                        <h6>{song.title}</h6>
                         <small>Album: {song.album} | Artist: {song.artist} | Genre: {song.genre} | Mood: {song.mood} </small>
                     </div>
                 </div>
                 <br />
                 {/* {errors.map((err) => (<Error key={err}>{err}</Error>))} */}
                 <div className = "song-card-upper-buttons">
-                    <Button className="btn" onClick = {handlePlayMusic}> { play? "⏹" : "▶️"} </Button> 
+                    <Button className="btn-default" onClick = {handlePlayMusic}> { play? "⏹" : "▶️"} </Button> 
                     
-                    { addToLib ? <Button className="btn"> ➖ Added to library </Button> : <Button className="btn" onClick = {handleAddToLibrary}> ➕ Add to library </Button>}
+                    { addToLib ? <Button className="btn btn-default"> ➖ Added to library </Button> : <Button className="btn btn-default" onClick = {handleAddToLibrary}> ➕ </Button>}
                     <br />
                     {/* {addToLib ?  */}
                     {/* {errors.map((err) => (<Error key={err}>{err}</Error>))} */}

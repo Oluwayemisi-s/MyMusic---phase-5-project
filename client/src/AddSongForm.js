@@ -59,7 +59,7 @@ export default function AddSongForm(){
     return(
         <div>
             <fieldset className="form-container-add">
-            <legend>Add a new song to our database here:</legend>
+            <legend>Help me build up my database. Add a new song here:</legend>
            {errors.map((err) => (<Error key={err}>{err}</Error>))}
             <Form onSubmit={handleSubmit}>
 

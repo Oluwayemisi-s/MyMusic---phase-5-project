@@ -41,7 +41,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Button onClick = {handleLogout}>Log out</Button>
+      <Button id="logout" onClick = {handleLogout}>Log out</Button>
       {errors.map((err) => (<Error key={err}>{err}</Error>))}
      { user ? 
         <MyMusicBody user = {user}/> 

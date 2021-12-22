@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Moo+Lah+Lah&display=swap');
+
 body {
-  background-image: url("https://images.unsplash.com/photo-1609083380444-26fd227d7339?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=700&q=60");
+  background-image: url("https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NTB8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=700&q=60");
   background-size: 100%;
 }
 
@@ -35,20 +37,64 @@ body {
 
 .header {
   text-align: center;
+  padding: 10px;
+  margin: 15px;
+  font-family: 'Anton', sans-serif;
+  /* font-family: 'Moo Lah Lah', cursive; */
+  font-size: 150px;
 }
+
+#logout {
+  text-align: center;
+  margin-left: 47.5%;
+  margin-bottom: 10px;
+}
+
+.navigation {
+  
+  align-items: center;
+  width: 90%;
+  margin:auto;
+  margin-bottom: 15px;
+  
+}
+
 .bg-nav{
   display:flex;
   background-color: rgb(238, 172, 191, .80);
   font-size: 2em;
-  
+  /* text-align: center; */
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+.search {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bolder;
+  padding: 10px;
+}
+
+.search label{
+  margin-right: 5px;
+}
+
+.search input{
+  margin-right: 5px;
+  border-radius: 10px;
+}
+
+.song-card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .song-card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   /* height: 150px; */
+  width: 45%;
   margin: 15px;
   padding: 10px;
   border-radius: 2em;
@@ -63,8 +109,10 @@ body {
  }
 .song-card img {
  width: 100px;
+ height: 120px;
  border-radius: 2em;
  border: 1px solid;
+ margin: 5px;
 }
 
 .song-card-titles {
@@ -85,19 +133,19 @@ body {
   font-size: 1.5em;
   font-weight: bolder;
   margin: 15px;
-  margin-top: 20px;
+  margin-top: 5px;
  margin-left: 1px;
 }
 
 .song-card-titles small{
   font-size: 1em;
-  margin: 15px;
-  margin-top: 10px;
+  margin: 10px;
+  margin-top: 5px;
 }
 
 .btn {
   width: auto;
-  height: 60%;
+  /* height: 60%; */
   padding: 10px;
   margin: 2px;
   font-size: 1em;
@@ -118,19 +166,29 @@ body {
 .song-card-upper-buttons {
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 .song-card-lower-buttons {
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
+.choose-playlist {
+  display: block;
+  font-size: 1.5em;
+  font-weight: 1em;
+}
 /* .song-card-conditionals {
   display: flex;
   flex-direction: column;
 } */
+
+.reviews {
+  text-align: left;
+  font-weight: bolder;
+}
 
 .genres-main {
   display: flex;

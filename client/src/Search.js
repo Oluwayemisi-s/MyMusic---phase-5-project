@@ -5,7 +5,7 @@ export default function Search ( {search, setSearch} ) {
     //const [search, setSearch] = useState("")
 
     return(
-        <div>
+        <div className="search">
             <form className="searchbar" >
                 <div className="ui input">
                     <label>Search for a song:</label>

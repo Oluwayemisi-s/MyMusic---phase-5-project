@@ -5,7 +5,7 @@ import { Navbar, Nav } from 'react-bootstrap'
 export default function Navigation (){
 
     return(
-        <div>
+        <div  className="navigation">
         
             <Navbar bg="nav" variant="dark" expand="lg" >
                 {/* <Container> */}

@@ -12,6 +12,14 @@ class PlaylistSongsController < ApplicationController
         render json: songs, status: :ok
     end
 
+    def destroy
+        # byebug
+        song = PlaylistSong.find_by(id: params[:id])
+        # byebug
+        song.destroy
+        render json: {}, status: :ok
+    end
+
     private
 
     def playlistSong_params

@@ -18,6 +18,16 @@ class UsersController < ApplicationController
         end
     end
 
+    def update
+        user = User.find(params[:id])
+        if user&.authenticate(params[:password])
+            user.update!(user_params)
+            render json: user, status: :ok
+        else
+            render json: ["You have entered an incorrect password to your account"]
+        end
+    end
+
     private
     def user_params
         params.permit(:name, :email, :password, :password_confirmation)

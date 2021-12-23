@@ -2,8 +2,9 @@
 import { useState } from "react"
 import Error from "./Error";
 
-export default function Reviews ( {song, user} ) {
+export default function Reviews ( {song, reviews, user} ) {
     const [errors, setErrors] = useState([])
+    const [reviewss, setReviewss] = useState(reviews)
     const [reviewContent, setReviewContent] = useState({
         song_id: song.id,
         user_id: user.id,
@@ -14,9 +15,12 @@ export default function Reviews ( {song, user} ) {
         setReviewContent({...reviewContent, [e.target.name]: e.target.value})
     }
 
+    function onReviewPost(new_post){
+        setReviewss([...reviewss, new_post])
+    }
+
     function handleSubmit (e) {
         e.preventDefault();
-        console.log("form submitting...")
         fetch("/reviews", {
             method: "POST",
             headers: {
@@ -26,7 +30,8 @@ export default function Reviews ( {song, user} ) {
           }).then((res) => {
             if (res.ok) {
               res.json().then((data) => {
-                alert("Review posted. Please reload page to see.") 
+                alert("Review posted.")
+                onReviewPost(reviewContent) 
                 setReviewContent({
                   song_id: song.id,
                   user_id: user.id,
@@ -41,9 +46,9 @@ export default function Reviews ( {song, user} ) {
           })  
     }
 
-    const reviews = song.reviews.map(review => <li key = {review.id}> {review.content} </li>)
+    const song_reviews = reviewss.map(review => <li key = {review.id}> {review.content} </li>)
 
-    if (song.reviews.length === 0) return (
+    if (reviewss.length === 0) return (
     <div>
       <h6>Currently no reviews for this song in the database. Add your review...</h6>
       <form onSubmit = {handleSubmit}>
@@ -57,7 +62,7 @@ export default function Reviews ( {song, user} ) {
     return(
         <div className="reviews">
             <ul>
-                {reviews}
+                {song_reviews}
             </ul>
             {errors.map((err) => (<Error key={err}>{err}</Error>))}
             <form onSubmit = {handleSubmit}>

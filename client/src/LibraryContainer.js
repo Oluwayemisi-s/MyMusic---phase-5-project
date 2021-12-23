@@ -50,6 +50,12 @@ export default function LibraryContainer( {user} ){
        setPlaylists(newPlaylist)
     }
 
+    function onDeleteSongFromPlaylist(deleted){
+      const newSongs = songs.filter(playlist => playlist.id !== deleted)
+      setSongs(newSongs)
+   }
+
+  console.log(songs)
     function handleAddPlaylistDelete (playlist){
         //console.log(playlist)
         fetch(`/playlists/${playlist.id}`, {
@@ -96,7 +102,7 @@ export default function LibraryContainer( {user} ){
 
     }
 
-    const songsInPlaylist = songs.map(playlist => <PlaylistSongCard key = {playlist.id} song = {playlist.song} user = {user}/>)
+    const songsInPlaylist = songs.map(playlist => <PlaylistSongCard key = {playlist.id} song = {playlist.song} id = {playlist.id} onDeleteSongFromPlaylist = {onDeleteSongFromPlaylist}/>)
 
     const list = playlists.map(playlist => <div className="library-playlist" key = {playlist.id}><h1 onClick = {() => handleSongsInPlaylist(playlist)}>{playlist.playlist_name}</h1> <button onClick = {() => handleAddPlaylistDelete(playlist)}> ✖️Delete</button> </div>)
     return(

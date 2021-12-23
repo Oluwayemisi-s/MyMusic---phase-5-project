@@ -42,6 +42,7 @@ function App() {
     <div className="App">
       <Header />
       <Button id="logout" onClick = {handleLogout}>Log out</Button>
+      <h1 id="user-welcome">Welcome {user.name}! We hope you enjoy listening to some good music today.</h1>
       {errors.map((err) => (<Error key={err}>{err}</Error>))}
      { user ? 
         <MyMusicBody user = {user}/> 

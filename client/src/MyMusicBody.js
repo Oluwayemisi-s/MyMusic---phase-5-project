@@ -33,7 +33,7 @@ export default function MyMusicBody ( {user} ){
                   <AddSongForm />
                 </Route>
                 <Route exact path = "/editprofile">
-                  <EditProfile />
+                  <EditProfile user = {user}/>
                 </Route>
             </Switch>
           

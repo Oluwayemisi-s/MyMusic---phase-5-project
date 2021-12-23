@@ -35,7 +35,6 @@ export default function SignUpForm ({handleFormDisplay, setUser}) {
                 setUser(user);
                 setFormData({
                   name: "",
-                  username: "",
                   email: "",
                   password: "",
                   password_confirmation: "",

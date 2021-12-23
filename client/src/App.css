@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Patrick+Hand&display=swap');
 
 body {
   background-image: url("https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NTB8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=700&q=60");
   background-size: 100%;
-  cursor: url("http://www.rw-designer.com/cursor-extern.php?id=74558");
 }
 
 .form-container {
@@ -42,16 +41,21 @@ body {
 
 .header {
   text-align: center;
-  padding: 10px;
-  margin: 15px;
-  font-family: 'Anton', sans-serif;
-  /* font-family: 'Moo Lah Lah', cursive; */
-  font-size: 150px;
+  padding: 10x;
+  margin: 10px;
+  font-family: 'Bungee', cursive;
+  font-size: 500px;
+  line-height: 200px;
 }
 
 #logout {
   text-align: center;
   margin-left: 47.5%;
+  margin-bottom: 10px;
+}
+
+#user-welcome {
+  text-align: center;
   margin-bottom: 10px;
 }
 

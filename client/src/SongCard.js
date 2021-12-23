@@ -37,8 +37,6 @@ export default function SongCard({ song, user }){
     }
 
     function handleAddToLibrary(){
-       // console.log("Add to library was clicked")
-        //setAddToLib(true)
         const data = addToPlaylist
         if (addToPlaylist.playlist_id !== ""){
             fetch("/playlist_songs", {
@@ -63,12 +61,11 @@ export default function SongCard({ song, user }){
         } else {
             alert("Choose a playlist to add song to")
             setErrors(["Choose a playlist to add song to"])
-        }
-         
+        }   
     }
 
     function handlePlayMusic(){
-        //console.log("Play button was clicked")
+        
         setPlay(current => !current)
     }
 
@@ -81,7 +78,8 @@ export default function SongCard({ song, user }){
         return (
             <div className = "song-card">
                 <div className = "song-card-titles">
-                <img src = {song.thumbnail} alt = "poster"/>
+                { play ? <ReactPlayer url={song.link} playing controls width = "350px" height = "180px"/> : <img src = {song.thumbnail} alt = "poster"/>}
+                {/* <img src = {song.thumbnail} alt = "poster"/> */}
                     <div className = "song-card-text">
                         <h6>{song.title}</h6>
                         <small>Album: {song.album} | Artist: {song.artist} | Genre: {song.genre} | Mood: {song.mood} </small>
@@ -133,9 +131,9 @@ export default function SongCard({ song, user }){
                 </div>
                 <div className = "song-card-conditionals">
                     {showReviews ? 
-                    <Reviews song = {song} user = {user}/> : null
+                    <Reviews reviews = {song.reviews} song = {song} user = {user}/> : null
                     }
-                    { play ? <ReactPlayer url={song.link} playing controls width = "350px" height = "180px"/> : null}
+                    {/* { play ? <ReactPlayer url={song.link} playing controls width = "350px" height = "180px"/> : null} */}
                 </div>
             </div>
         )

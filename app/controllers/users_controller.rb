@@ -3,6 +3,11 @@ class UsersController < ApplicationController
     #before_action :is_authorised, only: [:update, :destroy]
 
 
+    def index
+        users = User.all
+        render json: users, status: :ok
+    end
+
     def create 
         user = User.create!(user_params)
         session[:user_id] = user.id
@@ -20,11 +25,12 @@ class UsersController < ApplicationController
 
     def update
         user = User.find(params[:id])
+        # byebug
         if user&.authenticate(params[:password])
             user.update!(user_params)
             render json: user, status: :ok
         else
-            render json: ["You have entered an incorrect password to your account"]
+            render json: {errors: ["You have entered an incorrect password to your account"]}, status: :unauthorized
         end
     end
 

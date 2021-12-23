@@ -30,7 +30,7 @@ export default function EditProfile( {user} ){
             body: JSON.stringify(newData),
           }).then((res) => {
             if (res.ok) {
-              res.json().then((user) => {
+              res.json().then(() => {
                 alert("Your profile information has been updated")
                 setFormData({
                   name: "",
@@ -70,13 +70,13 @@ export default function EditProfile( {user} ){
                     </Form.Text>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formGroupPasswordConfirm">
+                {/* <Form.Group className="mb-3" controlId="formGroupPasswordConfirm">
                     <Form.Label>Confirmation password:</Form.Label>
                     <Form.Control type="password" placeholder="Password confirmation" name="password_confirmation" value={formData.password_confirmation} onChange = {handleFormChange}/>
                     <Form.Text id="passwordHelpBlock" muted>
                         Password must match what you have above.
                     </Form.Text>
-                </Form.Group>
+                </Form.Group> */}
                 <Button className = "btn-default" type="submit">Edit information</Button>
             </Form>
             </fieldset>

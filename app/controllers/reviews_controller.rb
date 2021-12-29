@@ -6,6 +6,17 @@ class ReviewsController < ApplicationController
         render json: review, status: :created
     end
 
+    def show
+        reviews = Review.where(song_id: params[:id])
+        render json: reviews, status: :ok
+    end
+
+    def destroy
+        review = Review.find(params[:id])
+        review.destroy
+        render json: {}, status: :ok
+    end
+
     private
 
     def review_params

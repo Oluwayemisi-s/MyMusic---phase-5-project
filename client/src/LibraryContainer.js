@@ -55,7 +55,7 @@ export default function LibraryContainer( {user} ){
       setSongs(newSongs)
    }
 
-  console.log(songs)
+  //console.log(songs)
     function handleAddPlaylistDelete (playlist){
         //console.log(playlist)
         fetch(`/playlists/${playlist.id}`, {

@@ -1,8 +1,9 @@
 //import { Alert } from "bootstrap";
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Error from "./Error";
 
 export default function Reviews ( {song, reviews, user} ) {
+  
     const [errors, setErrors] = useState([])
     const [reviewss, setReviewss] = useState(reviews)
     const [reviewContent, setReviewContent] = useState({
@@ -11,11 +12,39 @@ export default function Reviews ( {song, reviews, user} ) {
         content: ""
     })
 
+    // useEffect(() => {
+    //   fetch(`/reviews/${song.id}`)
+    //     .then (res => res.json())
+    //     .then(data => {
+    //         //console.log(data)
+    //         setReviewss(data)
+    //     })
+    // }, [song])
+
+    function handleDelete(item) {
+      console.log(item)
+      fetch(`/reviews/${item.id}`,{
+        method: "DELETE"
+      })
+        .then (res => res.json())
+        .then(() => {
+            console.log("deleted")
+            alert("Your posted review has now been deleted!")
+            onDeleteReview(item)   
+        })
+    }
+
+    function onDeleteReview(deleted){
+      const newReviewss = reviewss.filter(review => review.id !== deleted.id)
+       setReviewss(newReviewss)
+    }
+
     function handleFormInput(e){
         setReviewContent({...reviewContent, [e.target.name]: e.target.value})
     }
 
     function onReviewPost(new_post){
+      //console.log(new_post)
         setReviewss([...reviewss, new_post])
     }
 
@@ -46,10 +75,10 @@ export default function Reviews ( {song, reviews, user} ) {
           })  
     }
 
-    const song_reviews = reviewss.map(review => <li key = {review.id}> {review.content} </li>)
+    const song_reviews = reviewss.map(review => <li key = {review.id}> {review.content} {user.id === review.user_id ? <button onClick={() => handleDelete(review)}>✖️</button>  : null }</li>)
 
     if (reviewss.length === 0) return (
-    <div>
+    <div className="reviews">
       <h6>Currently no reviews for this song in the database. Add your review...</h6>
       <form onSubmit = {handleSubmit}>
                 <label>Add a review:</label>

@@ -4,7 +4,7 @@ class SongsController < ApplicationController
 
     def index
         songs = Song.all
-        render json: songs, status: :ok
+        render json: songs, include: ['reviews.user'],  status: :ok
     end
 
     def create
@@ -16,7 +16,7 @@ class SongsController < ApplicationController
         # byebug
         songs = Song.filterSongs(params[:id])
         # songsInGenre = Song.where(genre: params[:id])
-        render json: songs, status: :ok
+        render json: songs, include: ['reviews.user'], status: :ok
         # byebug    
     end
 

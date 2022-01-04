@@ -36,7 +36,7 @@ export default function GenreContainer( {user} ){
         }) 
     }
 
-    const genres = allGenres.map( genre => <h1 className = "genres-name" key = {genre} onClick = {() => handleGenreClick(genre)}>{genre}</h1>)
+    const genres = allGenres.map( genre => <h1 className = "genres-name" key = {genre} onClick = {() => handleGenreClick(genre)} data-bs-toggle="tooltip" data-bs-placement="top" title="Show all songs in genre">{genre}</h1>)
     const songs = songsInGenre.map( song => <SongCard key = {song.id} song = {song} user = {user}/>)
     return(
         <div className="genres-main">

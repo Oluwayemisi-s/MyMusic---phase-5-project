@@ -21,12 +21,12 @@ class SongsController < ApplicationController
     end
 
     def getGenres
-        genres = Song.allGenres
+        genres = Song.allGenres.sort
         render json: genres, status: :ok
     end
 
     def getArtists
-        artists = Song.allArtists
+        artists = Song.allArtists.sort
         render json: artists, status: :ok
     end
 

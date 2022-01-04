@@ -31,7 +31,11 @@ export default function AllSongsContainter( {user, search, setSearch} ){
             {errors.map((err) => (
               <Error key={err}>{err}</Error>
             ))}
+            {/* <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+              Tooltip on top
+            </button> */}
             
+            <br/>
             {songs}
         </div>
      </div>

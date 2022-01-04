@@ -4,8 +4,7 @@ import ReactPlayer from 'react-player'
 import Error from './Error'
 
 export default function PlaylistSongCard ( {song, id, onDeleteSongFromPlaylist} ){
-    // console.log(song)
-    // console.log(playlist)
+    
     const [play, setPlay] = useState(false)
     const [errors, setErrors] = useState([])
 
@@ -35,11 +34,11 @@ export default function PlaylistSongCard ( {song, id, onDeleteSongFromPlaylist} 
     return(
         <div className="playlist-song-card">
             { play ? <ReactPlayer url={song.link} playing controls width = "250px" height = "250px"/> : <img src = {song.thumbnail} alt = "poster"/>}
-            {/* <img src = {song.thumbnail} alt = "poster"/> */}
+            
             <h6>Song Title: {song.title}</h6>
-            <Button onClick = {handlePlayMusic}> { play? "⏹" : "▶️"} </Button> 
-            <Button onClick = {handleDeleteMusic}> ✖️ Remove </Button> 
-            {/* { play ? <ReactPlayer url={song.link} playing controls width = "250px" height = "180px"/> : null} */}
+            <Button onClick = {handlePlayMusic} data-bs-toggle="tooltip" data-bs-placement="top" title="Play Song"> { play? "⏹" : "▶️"} </Button> 
+            <Button onClick = {handleDeleteMusic} data-bs-toggle="tooltip" data-bs-placement="top" title="Remove song from playlist"> ✖️ Remove </Button> 
+            
             
         </div>
     )

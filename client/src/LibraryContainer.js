@@ -55,9 +55,9 @@ export default function LibraryContainer( {user} ){
       setSongs(newSongs)
    }
 
-  //console.log(songs)
+  
     function handleAddPlaylistDelete (playlist){
-        //console.log(playlist)
+        
         fetch(`/playlists/${playlist.id}`, {
             method: "DELETE",
             headers: {
@@ -104,7 +104,7 @@ export default function LibraryContainer( {user} ){
 
     const songsInPlaylist = songs.map(playlist => <PlaylistSongCard key = {playlist.id} song = {playlist.song} id = {playlist.id} onDeleteSongFromPlaylist = {onDeleteSongFromPlaylist}/>)
 
-    const list = playlists.map(playlist => <div className="library-playlist" key = {playlist.id}><h1 onClick = {() => handleSongsInPlaylist(playlist)}>{playlist.playlist_name}</h1> <button onClick = {() => handleAddPlaylistDelete(playlist)}> ✖️Delete</button> </div>)
+    const list = playlists.map(playlist => <div className="library-playlist" key = {playlist.id}><h1 onClick = {() => handleSongsInPlaylist(playlist)}>{playlist.playlist_name}</h1> <button onClick = {() => handleAddPlaylistDelete(playlist)} data-bs-toggle="tooltip" data-bs-placement="top" title="Delete entire playlist from your library"> ✖️Delete</button> </div>)
     return(
       <div className="library-main">
           <div className="library">

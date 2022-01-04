@@ -15,7 +15,7 @@ export default function MyMusicBody ( {user} ){
     return(
         <div>
             <Navigation /> 
-            {/* <Search search = {search} setSearch = {setSearch}/> */}
+           
             <Switch>
                 <Route exact path = "/allsongs">
                   <AllSongsContainter user = {user} search = {search} setSearch = {setSearch}/>

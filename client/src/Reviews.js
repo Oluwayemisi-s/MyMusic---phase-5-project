@@ -1,5 +1,5 @@
-//import { Alert } from "bootstrap";
-import { useEffect, useState } from "react"
+
+import { useState } from "react"
 import Error from "./Error";
 
 export default function Reviews ( {song, reviews, user} ) {
@@ -12,14 +12,6 @@ export default function Reviews ( {song, reviews, user} ) {
         content: ""
     })
 
-    // useEffect(() => {
-    //   fetch(`/reviews/${song.id}`)
-    //     .then (res => res.json())
-    //     .then(data => {
-    //         //console.log(data)
-    //         setReviewss(data)
-    //     })
-    // }, [song])
 
     function handleDelete(item) {
       console.log(item)
@@ -44,7 +36,7 @@ export default function Reviews ( {song, reviews, user} ) {
     }
 
     function onReviewPost(new_post){
-      //console.log(new_post)
+     
         setReviewss([...reviewss, new_post])
     }
 
@@ -75,7 +67,7 @@ export default function Reviews ( {song, reviews, user} ) {
           })  
     }
 
-    const song_reviews = reviewss.map(review => <li key = {review.id}> {review.content} {user.id === review.user_id ? <button onClick={() => handleDelete(review)}>✖️</button>  : null }</li>)
+    const song_reviews = reviewss.map(review => <li key = {review.id}> {review.content} {user.id === review.user_id ? <button onClick={() => handleDelete(review)} data-bs-toggle="tooltip" data-bs-placement="top" title="Delete your review">✖️</button>  : null }</li>)
 
     if (reviewss.length === 0) return (
     <div className="reviews">

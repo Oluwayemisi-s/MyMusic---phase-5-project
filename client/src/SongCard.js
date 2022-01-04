@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import ReactPlayer from 'react-player'
 import Modal from 'react-bootstrap/Modal'
 import Reviews from './Reviews'
-import Error from './Error'
+//import Error from './Error'
 
 export default function SongCard({ song, user }){
     const [showReviews, setShowReviews] = useState(false)
@@ -91,21 +91,20 @@ export default function SongCard({ song, user }){
             <div className = "song-card">
                 <div className = "song-card-titles">
                 { play ? <ReactPlayer url={song.link} playing controls width = "350px" height = "180px"/> : <img src = {song.thumbnail} alt = "poster"/>}
-                {/* <img src = {song.thumbnail} alt = "poster"/> */}
+                
                     <div className = "song-card-text">
                         <h6>{song.title}</h6>
                         <small>Album: {song.album} | Artist: {song.artist} | Genre: {song.genre} | Mood: {song.mood} </small>
                     </div>
                 </div>
                 <br />
-                {/* {errors.map((err) => (<Error key={err}>{err}</Error>))} */}
+              
                 <div className = "song-card-upper-buttons">
-                    <Button className="btn-default" onClick = {handlePlayMusic}> { play? "⏹" : "▶️"} </Button> 
+                    <Button className="btn-default" data-bs-toggle="tooltip" data-bs-placement="top" title="Play Song" onClick = {handlePlayMusic}> { play? "⏹" : "▶️"} </Button> 
                     
-                    { addToLib ? <Button className="btn btn-default"> ➖ Added to library </Button> : <Button className="btn btn-default" onClick = {handleAddToLibrary}> ➕ </Button>}
+                    { addToLib ? <Button className="btn btn-default" data-bs-toggle="tooltip" data-bs-placement="top" title="Song already added to your library"> ➖ Added to library </Button> : <Button className="btn btn-default" onClick = {handleAddToLibrary} data-bs-toggle="tooltip" data-bs-placement="top" title="Add song to a playlist"> ➕ </Button>}
                     <br />
-                    {/* {addToLib ?  */}
-                    {/* {errors.map((err) => (<Error key={err}>{err}</Error>))} */}
+                  
                     <label htmlFor="Playlist-options">Select playlist to add song to:
                         <select
                             id="playlist"
@@ -118,10 +117,11 @@ export default function SongCard({ song, user }){
                         </select>
                     </label>
                 </div>
-                 {/* : null} */}
+                
                 <br/>
                 <div className = "song-card-lower-buttons">
-                    <Button variant="link" className="btn btn-link" onClick = {handleClickReview}> Reviews </Button> <Button variant="link" className="btn btn-link" onClick = {handleDescriptionClick}> Decription </Button>
+                    <Button variant="link" className="btn btn-link" onClick = {handleClickReview} data-bs-toggle="tooltip" data-bs-placement="top" title="Show all song reviews"> Reviews </Button> 
+                    <Button variant="link" className="btn btn-link" onClick = {handleDescriptionClick} data-bs-toggle="tooltip" data-bs-placement="top" title="Show song description"> Decription </Button>
                     
                     <Modal
                         show={showDescription}
@@ -145,7 +145,7 @@ export default function SongCard({ song, user }){
                     {showReviews ? 
                     <Reviews reviews = {song.reviews} song = {song} user = {user}/> : null
                     }
-                    {/* { play ? <ReactPlayer url={song.link} playing controls width = "350px" height = "180px"/> : null} */}
+                    
                 </div>
             </div>
         )

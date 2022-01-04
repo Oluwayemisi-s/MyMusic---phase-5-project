@@ -74,31 +74,3 @@ export default function LoginForm ( {handleFormDisplay, setUser} ) {
 }
 
 
-//   <form className = "signup-login-form" onSubmit={handleSubmit}>
-//             <fieldset>
-//             <legend>Log into your account:</legend>
-
-            // { {errors.map((err) => (<Error key={err}>{err}</Error>))} }
-
-        //      <label htmlFor="username">Username:</label>
-        //     <input
-        //         id="username-login-input"
-        //         type="text"
-        //         name="username"
-        //         value={formData.email}
-        //         onChange={handleFormChange}
-        //     />
-        //     <br/>
-        //     <label htmlFor="password">Password:</label>
-        //     <input
-        //         id="password-login-input"
-        //         type="password"
-        //         name="password"
-        //         value={formData.password}
-        //         onChange={handleFormChange}
-        //     />
-        //      <br/>
-        //     <button type="submit">Sign In</button><br></br>
-        //     </fieldset>
-        //     <h3>Don't have an account yet? <Button onClick = {handleFormDisplay}>Sign Up Now!</button></h3>
-        // </form> 

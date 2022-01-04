@@ -36,7 +36,7 @@ export default function AllArtistContainer( {user} ){
       }) 
   }
 
-    const artists = allArtists.map( artist => <h1 className = "genres-name" key = {artist} onClick = {() => handleArtistClick(artist)}>{artist}</h1>)
+    const artists = allArtists.map( artist => <h1 className = "genres-name" key = {artist} onClick = {() => handleArtistClick(artist)} data-bs-toggle="tooltip" data-bs-placement="top" title="Show all songs from artist">{artist}</h1>)
     const songs = songsForArtist.map( song => <SongCard key = {song.id} song = {song} user = {user}/>)
 
     return(

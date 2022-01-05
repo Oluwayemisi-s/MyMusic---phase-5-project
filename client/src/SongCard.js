@@ -12,7 +12,6 @@ export default function SongCard({ song, user }){
     const [play, setPlay] = useState(false)
     const [addToLib, setAddToLib] = useState(false)
     const [playlists, setPlaylists] = useState([])
-    //const [playlistSongs, setPlaylistSongs] = useState([])
     const [addToPlaylist, setAddToPlaylist] = useState({
             song_id: song.id,
             playlist_id: ""
@@ -22,21 +21,10 @@ export default function SongCard({ song, user }){
         fetch('/playlists')
         .then (res => res.json())
         .then(data => {
-            console.log(data)
             setPlaylists(data)
-            //setPlaylistSongs(data.playlistSongs)
+            setAddToLib(data.some(playlist => playlist.playlist_songs.some(s => song.id === s.song_id)))
         })
     }, [])
-
-    // const playListSongs = playlists.map(playlist => playlist.playlist_songs)
-    // console.log(playListSongs)
-
-    // playlists.map(playlist => playlist.playlist_songs.forEach(s => {
-    //     if (song.id === s.song_id){
-    //         setAddToLib(true)
-    //     }
-    // }))
-
  
     function handleClickReview(){
        
@@ -60,9 +48,7 @@ export default function SongCard({ song, user }){
               }).then((res) => {
                 if (res.ok) {
                   res.json().then((data) => {
-                    console.log(data);
-                    setAddToLib(true)
-                    
+                    setAddToLib(true)  
                   });
                 } else {
                   res.json().then((err) => {

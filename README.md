@@ -5,7 +5,7 @@ This README documents information about the MyMusic project.
     MyMusic - Flatiron Software Engineering Phase Five Capstone Project
 
 # Link to app demo
-    That will go here
+    https://vimeo.com/662797872/ebef824748
 
 # Project Owner: 
     Oluwayemisi Soremekun 

@@ -2,6 +2,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { useState } from 'react'
 import Error from './Error'
+import Header from './Header'
 
 export default function SignUpForm ({handleFormDisplay, setUser}) {
     const [errors, setErrors] = useState([])
@@ -50,6 +51,7 @@ export default function SignUpForm ({handleFormDisplay, setUser}) {
 
     return (
         <div>
+          <Header />
             <fieldset className="form-container">
             <legend>Sign up for an account:</legend>
            {errors.map((err) => (<Error key={err}>{err}</Error>))}

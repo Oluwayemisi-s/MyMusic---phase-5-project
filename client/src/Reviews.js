@@ -72,7 +72,7 @@ export default function Reviews ( {song, reviews, user} ) {
     if (reviewss.length === 0) return (
     <div className="reviews">
       <h6>Currently no reviews for this song in the database. Add your review...</h6>
-      <form onSubmit = {handleSubmit}>
+      <form className="search" onSubmit = {handleSubmit}>
                 <label>Add a review:</label>
                 <input type = "text" name = "content" placeholder = "type your review here" value = {reviewContent.content} onChange = {handleFormInput}>
                 </input>
@@ -86,7 +86,7 @@ export default function Reviews ( {song, reviews, user} ) {
                 {song_reviews}
             </ul>
             {errors.map((err) => (<Error key={err}>{err}</Error>))}
-            <form onSubmit = {handleSubmit}>
+            <form className="search" onSubmit = {handleSubmit}>
                 <label>Add a review:</label>
                 <input type = "text" name = "content" placeholder = "type your review here" value = {reviewContent.content} onChange = {handleFormInput}>
                 </input>

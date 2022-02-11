@@ -5,7 +5,7 @@ This README documents information about the MyMusic project.
     MyMusic - Flatiron Software Engineering Phase Five Capstone Project
     
 # Link to live app
-    https://git.heroku.com/my-musicc.git
+    https://my-musicc.herokuapp.com
 
 # Link to app demo
     https://vimeo.com/662797872/ebef824748
